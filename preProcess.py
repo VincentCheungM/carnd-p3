@@ -18,7 +18,7 @@ def ImgGenerator(img, steering):
     """
     Augumented Img
     """
-    img = crop(img, (img.shape[0]*0.35, img.shape[0]*0.9))
+    img = crop(img, (int(img.shape[0]*0.35), int(img.shape[0]*0.9)))
     img, steering = rndMirror(img, steering)
     img = rndBrightness(img)
     img = resize(img,(64,64))
@@ -93,7 +93,7 @@ def crop(img, ROI):
         image in ROI
     """
     top, bottom = ROI
-    return img[top:bottom, :]
+    return img[int(top):int(bottom), :]
 
 
 def rndMirror(img, steering, mirrorProb = 0.5):
